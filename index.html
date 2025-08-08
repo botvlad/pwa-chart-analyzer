@@ -14,8 +14,17 @@
         <label id="pair-label" for="pair">Select currency pair:</label>
         <select id="pair"></select>
 
-        <label id="photo-label" for="photo">Upload photo for analysis:</label>
-        <input type="file" id="photo" accept="image/*">
+        <label id="photo-label">Upload photo for analysis:</label>
+        
+        <!-- Скрытый input -->
+        <input type="file" id="photo" accept="image/*" capture="environment" style="display:none;">
+        <!-- Красивая кнопка -->
+        <button id="camera-btn" class="camera-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 17a5 5 0 100-10 5 5 0 000 10zm-9-8h-1V7a2 2 0 012-2h3.17a2 2 0 001.41-.59l1.83-1.82A2 2 0 0112.83 2h2.34a2 2 0 011.42.59l1.83 1.82a2 2 0 001.41.59H21a2 2 0 012 2v2h-1a1 1 0 00-1 1v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a1 1 0 00-1-1z"/>
+            </svg>
+            <span id="camera-text">Take Photo</span>
+        </button>
 
         <button id="analyze">Analyze</button>
         

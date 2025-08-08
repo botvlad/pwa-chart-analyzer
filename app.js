@@ -19,6 +19,7 @@ const translations = {
         title: 'Forex Analysis',
         pairLabel: 'Select currency pair:',
         photoLabel: 'Upload photo for analysis:',
+        cameraText: 'Take Photo',
         analyze: 'Analyze',
         analyzing: 'Analyzing...',
         langToggle: 'RU'
@@ -27,6 +28,7 @@ const translations = {
         title: 'Анализ Форекс',
         pairLabel: 'Выберите валютную пару:',
         photoLabel: 'Загрузите фото для анализа:',
+        cameraText: 'Сделать фото',
         analyze: 'Анализировать',
         analyzing: 'Анализ...',
         langToggle: 'EN'
@@ -48,10 +50,15 @@ function setLanguage(l) {
     document.getElementById('title').textContent = translations[l].title;
     document.getElementById('pair-label').textContent = translations[l].pairLabel;
     document.getElementById('photo-label').textContent = translations[l].photoLabel;
+    document.getElementById('camera-text').textContent = translations[l].cameraText;
     document.getElementById('analyze').textContent = translations[l].analyze;
     document.getElementById('loading-text').textContent = translations[l].analyzing;
     document.getElementById('lang-toggle').textContent = translations[l].langToggle;
 }
+
+document.getElementById('camera-btn').addEventListener('click', () => {
+    document.getElementById('photo').click();
+});
 
 document.getElementById('analyze').addEventListener('click', function() {
     document.getElementById('result').textContent = '';
