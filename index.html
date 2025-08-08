@@ -9,43 +9,24 @@
 </head>
 <body>
     <div class="app-container">
-        <h1>Forex Analysis</h1>
-        <label for="pair">Выберите валютную пару:</label>
-        <select id="pair">
-            <option>EUR/USD</option>
-            <option>USD/JPY</option>
-            <option>GBP/USD</option>
-            <option>USD/CHF</option>
-            <option>AUD/USD</option>
-            <option>USD/CAD</option>
-            <option>NZD/USD</option>
-            <option>EUR/GBP</option>
-            <option>EUR/JPY</option>
-            <option>GBP/JPY</option>
-            <option>AUD/JPY</option>
-            <option>CAD/JPY</option>
-            <option>CHF/JPY</option>
-            <option>NZD/JPY</option>
-            <option>EUR/AUD</option>
-            <option>EUR/CAD</option>
-            <option>EUR/CHF</option>
-            <option>GBP/AUD</option>
-            <option>GBP/CAD</option>
-            <option>GBP/CHF</option>
-            <option>AUD/CAD</option>
-            <option>AUD/CHF</option>
-            <option>NZD/CAD</option>
-            <option>NZD/CHF</option>
-            <option>CAD/CHF</option>
-            <option>EUR/NZD</option>
-            <option>GBP/NZD</option>
-            <option>AUD/NZD</option>
-            <option>USD/NOK</option>
-            <option>USD/SEK</option>
-            <option>USD/SGD</option>
-        </select>
-        <button id="analyze">Анализировать</button>
+        <h1 id="title">Forex Analysis</h1>
+        
+        <label id="pair-label" for="pair">Select currency pair:</label>
+        <select id="pair"></select>
+
+        <label id="photo-label" for="photo">Upload photo for analysis:</label>
+        <input type="file" id="photo" accept="image/*">
+
+        <button id="analyze">Analyze</button>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Analyzing...</p>
+        </div>
+        
         <div id="result"></div>
+
+        <button id="lang-toggle">RU</button>
     </div>
     <script src="app.js"></script>
 </body>
