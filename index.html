@@ -1,65 +1,47 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pro Forex Scanner</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0b1220">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0f1e"/>
+    <title>Pocket Option Signal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="topbar">
-      <div class="brand">
-        <img src="icons/icon-192.png" alt="logo" class="logo">
-        <div>
-          <h1 id="title">Pro Forex Scanner</h1>
-          <p id="tagline" class="muted">Fast OTC & Standard pairs analysis</p>
-        </div>
-      </div>
-      <button id="lang-toggle" class="pill">RU</button>
-    </header>
+    <div class="app">
+        <header>
+            <h1>📊 Pocket Option Signal</h1>
+        </header>
+        <main>
+            <label for="pair">Валютная пара:</label>
+            <select id="pair">
+                <option>EUR/USD</option>
+                <option>GBP/USD</option>
+                <option>USD/JPY</option>
+                <option>EUR/GBP</option>
+                <option>BTC/USD</option>
+                <option>ETH/USD</option>
+                <option>OTC EUR/USD</option>
+                <option>OTC GBP/USD</option>
+            </select>
 
-    <section class="card">
-      <label id="pair-label" class="label">Select currency pair</label>
-      <div class="select-wrap">
-        <select id="pair" class="pair-select"></select>
-        <span class="badge" id="pair-badge">OTC/LP</span>
-      </div>
+            <button id="camera-btn">📷 Открыть камеру</button>
+            <button id="analyze-btn">🚀 Анализировать</button>
 
-      <label id="photo-label" class="label">Upload / take a photo</label>
-      <div class="camera-row">
-        <input id="photo" type="file" accept="image/*" capture="environment" style="display:none;">
-        <button id="camera-btn" class="camera-btn" aria-label="Take photo">
-          <svg class="cam-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h3l2-2h6l2 2h3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" stroke="white" stroke-width="1.2"/></svg>
-          <span id="camera-text">Take Photo</span>
-        </button>
-        <div id="preview" class="preview empty">No photo</div>
-      </div>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Анализируем...</p>
+            </div>
 
-      <div class="actions">
-        <button id="analyze" class="action primary" disabled>Analyze</button>
-      </div>
-
-      <div id="loading" class="loading hidden">
-        <div class="spinner"></div>
-        <div class="progress"><div id="progress-bar" style="width:0%"></div></div>
-        <div id="loading-text" class="muted">Analyzing...</div>
-      </div>
-
-      <div id="result" class="result hidden">
-        <div id="result-badge" class="result-badge"></div>
-        <div id="result-text" class="result-text"></div>
-      </div>
-
-      <p class="note muted" id="note">Results are simulated. Connect real AI to enable real analysis.</p>
-    </section>
-
-    <footer class="footer muted">© Pro Forex Scanner — Designed for mobile-first experience</footer>
-  </main>
-
-  <script src="app.js"></script>
+            <div id="result" class="hidden">
+                <h2 id="signal-text"></h2>
+            </div>
+        </main>
+        <footer>
+            <button id="lang-ru">RU</button>
+            <button id="lang-en">EN</button>
+        </footer>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
