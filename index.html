@@ -1,57 +1,52 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chart Analysis Tool</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0f9d58" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forex PWA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div class="app">
-    <header>
-      <h1>Chart Analysis Tool</h1>
-    </header>
-
-    <main class="card">
-      <label for="pair">Валютная пара</label>
-      <select id="pair">
-        <option>EUR/USD OTC</option>
-        <option>GBP/USD OTC</option>
-        <option>USD/JPY OTC</option>
-        <option>BTC/USD OTC</option>
-      </select>
-
-      <label for="chartImage">Загрузить скриншот графика</label>
-      <input id="chartImage" type="file" accept="image/*" />
-
-      <label for="expiration">Время экспирации</label>
-      <select id="expiration">
-        <option value="15">15 секунд</option>
-        <option value="30">30 секунд</option>
-        <option value="60">1 минута</option>
-        <option value="300">5 минут</option>
-        <option value="600">10 минут</option>
-      </select>
-
-      <div class="buttons">
-        <button id="analyzeBtn" class="primary">Анализировать</button>
-        <button id="buyBtn" class="secondary">Купить</button>
-      </div>
-
-      <div id="preview" class="preview">
-        <img id="previewImg" alt="preview" />
-      </div>
-
-      <div id="result" class="result">AI Analysis: —</div>
-    </main>
-
-    <footer>
-      <small>Offline-ready PWA — загрузи и установи</small>
-    </footer>
-  </div>
-
-  <script src="app.js"></script>
+    <div class="app-container">
+        <h1>Forex Analysis</h1>
+        <label for="pair">Выберите валютную пару:</label>
+        <select id="pair">
+            <option>EUR/USD</option>
+            <option>USD/JPY</option>
+            <option>GBP/USD</option>
+            <option>USD/CHF</option>
+            <option>AUD/USD</option>
+            <option>USD/CAD</option>
+            <option>NZD/USD</option>
+            <option>EUR/GBP</option>
+            <option>EUR/JPY</option>
+            <option>GBP/JPY</option>
+            <option>AUD/JPY</option>
+            <option>CAD/JPY</option>
+            <option>CHF/JPY</option>
+            <option>NZD/JPY</option>
+            <option>EUR/AUD</option>
+            <option>EUR/CAD</option>
+            <option>EUR/CHF</option>
+            <option>GBP/AUD</option>
+            <option>GBP/CAD</option>
+            <option>GBP/CHF</option>
+            <option>AUD/CAD</option>
+            <option>AUD/CHF</option>
+            <option>NZD/CAD</option>
+            <option>NZD/CHF</option>
+            <option>CAD/CHF</option>
+            <option>EUR/NZD</option>
+            <option>GBP/NZD</option>
+            <option>AUD/NZD</option>
+            <option>USD/NOK</option>
+            <option>USD/SEK</option>
+            <option>USD/SGD</option>
+        </select>
+        <button id="analyze">Анализировать</button>
+        <div id="result"></div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
