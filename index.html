@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chart Analysis Tool</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f9d58" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Chart Analysis Tool</h1>
+    </header>
+
+    <main class="card">
+      <label for="pair">Валютная пара</label>
+      <select id="pair">
+        <option>EUR/USD OTC</option>
+        <option>GBP/USD OTC</option>
+        <option>USD/JPY OTC</option>
+        <option>BTC/USD OTC</option>
+      </select>
+
+      <label for="chartImage">Загрузить скриншот графика</label>
+      <input id="chartImage" type="file" accept="image/*" />
+
+      <label for="expiration">Время экспирации</label>
+      <select id="expiration">
+        <option value="15">15 секунд</option>
+        <option value="30">30 секунд</option>
+        <option value="60">1 минута</option>
+        <option value="300">5 минут</option>
+        <option value="600">10 минут</option>
+      </select>
+
+      <div class="buttons">
+        <button id="analyzeBtn" class="primary">Анализировать</button>
+        <button id="buyBtn" class="secondary">Купить</button>
+      </div>
+
+      <div id="preview" class="preview">
+        <img id="previewImg" alt="preview" />
+      </div>
+
+      <div id="result" class="result">AI Analysis: —</div>
+    </main>
+
+    <footer>
+      <small>Offline-ready PWA — загрузи и установи</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

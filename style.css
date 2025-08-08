@@ -1,0 +1,48 @@
+/* Minimal dark UI inspired by your screenshot */
+:root{
+  --bg:#0b0b0b;
+  --card:#161616;
+  --accent:#0f9d58;
+  --muted:#999;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#050505,#0d0d0d);
+  color:var(--white);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.app{width:360px}
+header h1{font-size:20px;margin:0 0 12px 0;text-align:center}
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+label{display:block;font-size:13px;color:var(--muted);margin-top:8px}
+select,input[type=file],button{
+  width:100%;
+  padding:10px 12px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:transparent;
+  color:var(--white);
+  font-size:15px;
+}
+input[type=file]{padding:8px}
+.buttons{display:flex;gap:8px;margin-top:12px}
+button.primary{background:var(--accent);border:none;color:#fff;font-weight:600;cursor:pointer}
+button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);cursor:pointer}
+.result{margin-top:14px;padding:10px;border-radius:8px;background:rgba(15,157,88,0.06);color:var(--accent);font-weight:600;text-align:center}
+.preview{margin-top:12px;text-align:center}
+.preview img{max-width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.04)}
+footer{margin-top:12px;text-align:center;color:var(--muted);font-size:12px}
+@media (max-width:420px){.app{width:100%}}
