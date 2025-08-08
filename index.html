@@ -1,42 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forex PWA</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pro Forex Scanner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <h1 id="title">Forex Analysis</h1>
-        
-        <label id="pair-label" for="pair">Select currency pair:</label>
-        <select id="pair"></select>
-
-        <label id="photo-label">Upload photo for analysis:</label>
-        
-        <!-- Скрытый input -->
-        <input type="file" id="photo" accept="image/*" capture="environment" style="display:none;">
-        <!-- Красивая кнопка -->
-        <button id="camera-btn" class="camera-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-                <path d="M12 17a5 5 0 100-10 5 5 0 000 10zm-9-8h-1V7a2 2 0 012-2h3.17a2 2 0 001.41-.59l1.83-1.82A2 2 0 0112.83 2h2.34a2 2 0 011.42.59l1.83 1.82a2 2 0 001.41.59H21a2 2 0 012 2v2h-1a1 1 0 00-1 1v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a1 1 0 00-1-1z"/>
-            </svg>
-            <span id="camera-text">Take Photo</span>
-        </button>
-
-        <button id="analyze">Analyze</button>
-        
-        <div id="loading" class="hidden">
-            <div class="spinner"></div>
-            <p id="loading-text">Analyzing...</p>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <img src="icons/icon-192.png" alt="logo" class="logo">
+        <div>
+          <h1 id="title">Pro Forex Scanner</h1>
+          <p id="tagline" class="muted">Fast OTC & Standard pairs analysis</p>
         </div>
-        
-        <div id="result"></div>
+      </div>
+      <button id="lang-toggle" class="pill">RU</button>
+    </header>
 
-        <button id="lang-toggle">RU</button>
-    </div>
-    <script src="app.js"></script>
+    <section class="card">
+      <label id="pair-label" class="label">Select currency pair</label>
+      <div class="select-wrap">
+        <select id="pair" class="pair-select"></select>
+        <span class="badge" id="pair-badge">OTC/LP</span>
+      </div>
+
+      <label id="photo-label" class="label">Upload / take a photo</label>
+      <div class="camera-row">
+        <input id="photo" type="file" accept="image/*" capture="environment" style="display:none;">
+        <button id="camera-btn" class="camera-btn" aria-label="Take photo">
+          <svg class="cam-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h3l2-2h6l2 2h3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" stroke="white" stroke-width="1.2"/></svg>
+          <span id="camera-text">Take Photo</span>
+        </button>
+        <div id="preview" class="preview empty">No photo</div>
+      </div>
+
+      <div class="actions">
+        <button id="analyze" class="action primary" disabled>Analyze</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <div class="progress"><div id="progress-bar" style="width:0%"></div></div>
+        <div id="loading-text" class="muted">Analyzing...</div>
+      </div>
+
+      <div id="result" class="result hidden">
+        <div id="result-badge" class="result-badge"></div>
+        <div id="result-text" class="result-text"></div>
+      </div>
+
+      <p class="note muted" id="note">Results are simulated. Connect real AI to enable real analysis.</p>
+    </section>
+
+    <footer class="footer muted">© Pro Forex Scanner — Designed for mobile-first experience</footer>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
