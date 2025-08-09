@@ -35,14 +35,16 @@ const translations = {
     }
 };
 
-function populatePairs() {
+function populatePairs(type = 'normal') {
     const select = document.getElementById('pair');
     select.innerHTML = '';
-    [...pairsNormal, ...pairsOTC].forEach(p => {
+    let list = type === 'otc' ? pairsOTC : pairsNormal;
+    list.forEach(p => {
         const opt = document.createElement('option');
         opt.textContent = p;
         select.appendChild(opt);
     });
+});
 }
 
 function setLanguage(l) {
@@ -138,4 +140,13 @@ document.getElementById('photo').addEventListener('change', function() {
     if (this.files && this.files.length > 0) {
         document.getElementById('analyze').click();
     }
+});
+
+
+// Переключение валютных пар
+document.getElementById('btnNormal').addEventListener('click', () => {
+    populatePairs('normal');
+});
+document.getElementById('btnOTC').addEventListener('click', () => {
+    populatePairs('otc');
 });
