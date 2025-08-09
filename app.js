@@ -16,7 +16,7 @@ let lang = 'en';
 
 const translations = {
     en: {
-        title: 'Forex Analysis',
+        title: 'AI OptiBotX',
         pairLabel: 'Select currency pair:',
         photoLabel: 'Upload photo for analysis:',
         cameraText: 'Take Photo',
@@ -25,7 +25,7 @@ const translations = {
         langToggle: 'RU'
     },
     ru: {
-        title: 'Анализ Форекс',
+        title: 'AI OptiBotX',
         pairLabel: 'Выберите валютную пару:',
         photoLabel: 'Загрузите фото для анализа:',
         cameraText: 'Сделать фото',
