@@ -105,3 +105,37 @@ installBtn.addEventListener('click', () => {
         alert('Чтобы установить: нажмите «Поделиться» → «На экран Домой»');
     }
 });
+
+
+const installBtn = document.getElementById('installBtn');
+let deferredPrompt;
+
+// Показываем кнопку всегда
+installBtn.style.display = 'block';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
+installBtn.addEventListener('click', () => {
+    if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+        alert('Чтобы установить: нажмите «Поделиться» → «На экран Домой»');
+    } else if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            console.log(choiceResult.outcome);
+            deferredPrompt = null;
+        });
+    } else {
+        alert('Установка PWA не поддерживается в этом браузере.');
+    }
+});
+
+
+// Автоанализ при загрузке фото
+document.getElementById('photo').addEventListener('change', function() {
+    if (this.files && this.files.length > 0) {
+        document.getElementById('analyze').click();
+    }
+});
