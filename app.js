@@ -82,3 +82,26 @@ setLanguage('en');
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
 }
+
+
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            console.log(choiceResult.outcome);
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+    } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+        alert('Чтобы установить: нажмите «Поделиться» → «На экран Домой»');
+    }
+});
