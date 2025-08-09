@@ -16,7 +16,7 @@ let lang = 'en';
 
 const translations = {
     en: {
-        title: 'AI OptiBotX',
+        title: 'Forex Analysis',
         pairLabel: 'Select currency pair:',
         photoLabel: 'Upload photo for analysis:',
         cameraText: 'Take Photo',
@@ -25,7 +25,7 @@ const translations = {
         langToggle: 'RU'
     },
     ru: {
-        title: 'AI OptiBotX',
+        title: 'Анализ Форекс',
         pairLabel: 'Выберите валютную пару:',
         photoLabel: 'Загрузите фото для анализа:',
         cameraText: 'Сделать фото',
@@ -35,16 +35,14 @@ const translations = {
     }
 };
 
-function populatePairs(type = 'normal') {
+function populatePairs() {
     const select = document.getElementById('pair');
     select.innerHTML = '';
-    let list = type === 'otc' ? pairsOTC : pairsNormal;
-    list.forEach(p => {
+    [...pairsNormal, ...pairsOTC].forEach(p => {
         const opt = document.createElement('option');
         opt.textContent = p;
         select.appendChild(opt);
     });
-});
 }
 
 function setLanguage(l) {
@@ -84,69 +82,3 @@ setLanguage('en');
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
 }
-
-
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = 'block';
-});
-
-installBtn.addEventListener('click', () => {
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            console.log(choiceResult.outcome);
-            deferredPrompt = null;
-            installBtn.style.display = 'none';
-        });
-    } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-        alert('Чтобы установить: нажмите «Поделиться» → «На экран Домой»');
-    }
-});
-
-
-const installBtn = document.getElementById('installBtn');
-let deferredPrompt;
-
-// Показываем кнопку всегда
-installBtn.style.display = 'block';
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-});
-
-installBtn.addEventListener('click', () => {
-    if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-        alert('Чтобы установить: нажмите «Поделиться» → «На экран Домой»');
-    } else if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            console.log(choiceResult.outcome);
-            deferredPrompt = null;
-        });
-    } else {
-        alert('Установка PWA не поддерживается в этом браузере.');
-    }
-});
-
-
-// Автоанализ при загрузке фото
-document.getElementById('photo').addEventListener('change', function() {
-    if (this.files && this.files.length > 0) {
-        document.getElementById('analyze').click();
-    }
-});
-
-
-// Переключение валютных пар
-document.getElementById('btnNormal').addEventListener('click', () => {
-    populatePairs('normal');
-});
-document.getElementById('btnOTC').addEventListener('click', () => {
-    populatePairs('otc');
-});
