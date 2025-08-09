@@ -36,13 +36,13 @@ select {
 }
 
 #camera-btn {
-    background: linear-gradient(90deg, #00f5d4, #00bbf9);
+    background: linear-gradient(90deg,#003366,#00bfa5);
     color: #000;
     font-weight: bold;
 }
 
 #analyze-btn {
-    background: linear-gradient(90deg, #ff477e, #ff6b6b);
+    background: linear-gradient(90deg,#003366,#00bfa5);
     color: #fff;
     font-weight: bold;
 }
