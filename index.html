@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0f1e"/>
-    <title>Pocket Option Signal</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forex PWA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="app">
-        <header>
-            <h1>📊 Pocket Option Signal</h1>
-        </header>
-        <main>
-            <label for="pair">Валютная пара:</label>
-            <select id="pair">
-                <option>EUR/USD</option>
-                <option>GBP/USD</option>
-                <option>USD/JPY</option>
-                <option>EUR/GBP</option>
-                <option>BTC/USD</option>
-                <option>ETH/USD</option>
-                <option>OTC EUR/USD</option>
-                <option>OTC GBP/USD</option>
-            </select>
+    <div class="app-container">
+        <h1 id="title">Forex Analysis</h1>
+        
+        <label id="pair-label" for="pair">Select currency pair:</label>
+        <select id="pair"></select>
 
-            <button id="camera-btn">📷 Открыть камеру</button>
-            <button id="analyze-btn">🚀 Анализировать</button>
+        <label id="photo-label">Upload photo for analysis:</label>
+        
+        <!-- Скрытый input -->
+        <input type="file" id="photo" accept="image/*" capture="environment" style="display:none;">
+        <!-- Красивая кнопка -->
+        <button id="camera-btn" class="camera-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M12 17a5 5 0 100-10 5 5 0 000 10zm-9-8h-1V7a2 2 0 012-2h3.17a2 2 0 001.41-.59l1.83-1.82A2 2 0 0112.83 2h2.34a2 2 0 011.42.59l1.83 1.82a2 2 0 001.41.59H21a2 2 0 012 2v2h-1a1 1 0 00-1 1v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9a1 1 0 00-1-1z"/>
+            </svg>
+            <span id="camera-text">Take Photo</span>
+        </button>
 
-            <div id="loading" class="hidden">
-                <div class="spinner"></div>
-                <p>Анализируем...</p>
-            </div>
+        <button id="analyze">Analyze</button>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Analyzing...</p>
+        </div>
+        
+        <div id="result"></div>
 
-            <div id="result" class="hidden">
-                <h2 id="signal-text"></h2>
-            </div>
-        </main>
-        <footer>
-            <button id="lang-toggle">EN</button>
-        </footer>
+        <button id="lang-toggle">RU</button>
     </div>
     <script src="app.js"></script>
 </body>
