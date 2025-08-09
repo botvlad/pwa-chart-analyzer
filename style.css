@@ -75,3 +75,6 @@ button:hover {
     font-size: 2em;
     font-weight: bold;
 }
+
+.result-badge.buy { background: #00ff88; color: #04111a; }
+.result-badge.sell { background: #ff4d4d; color: white; }
